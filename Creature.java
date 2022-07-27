@@ -1,18 +1,7 @@
  
 import structure5.*;
 import java.util.*;
-/**
- * This class represents one creature on the board.
- * Each creature must remember its species, position, direction,
- * and the world in which it is living.
- * <p>
- * In addition, the Creature must remember the next instruction
- * out of its program to execute.
- * <p>
- * The creature is also repsonsible for making itself appear in
- * the WorldMap.  In fact, you should only update the WorldMap from
- * inside the Creature class.  
- */
+/** Simple creature that lives in the world. */
 public class Creature {
     private World<Creature> theWorld;
     private Species myKind;
@@ -20,13 +9,7 @@ public class Creature {
     private int direction;
     private int pc;
     private static Random chaos = new Random();
-    /**
-     * Create a creature of the given species, with the indicated
-     * position and direction.  Note that we also pass in the 
-     * world-- remember this world, so that you can check what
-     * is in front of the creature and to update the board
-     * when the creature moves.
-     */
+    /** Make a new creature at pos facing dir. */
     public Creature(Species species,
                     World<Creature> world,
                     Position pos,
@@ -39,28 +22,19 @@ public class Creature {
         pc = 1;
         //      draw();
     }
-    /**
-     * Return the species of the creature.
-     */
+    /** Species of this creature. */
     public Species species() {
         return myKind;
     }
-    /**
-     * Return the current direction of the creature.
-     */
+    /** Current direction. */
     public int direction() {
         return direction;
     }
-    /**
-     * Return the position of the creature.
-     */
+    /** Current position. */
     public Position position() {
         return location;
     }
-    /**
-     * Execute steps from the Creature’s program until 
-     * a hop, left, right, or infect instruction is executed.
-     */
+    /** Run the program until a move happens. */
     public void takeOneTurn() {
         Instruction i = null;
         int opcode;
@@ -168,18 +142,12 @@ etName());
         WorldMap.displaySquare(location,myKind.getName().charAt(0),direction,myKind.get
 Color());
     }
-    /**
-     * Return the compass direction the is 90 degrees left of
-     * the one passed in.
-     */
+    /** 90° left of given dir. */
     public static int leftFrom(int direction) {
         Assert.pre(0 <= direction && direction < 4, "Bad direction");
         return (4 + direction - 1) % 4;
     }
-    /**
-     * Return the compass direction the is 90 degrees right of
-     * the one passed in.
-     */
+    /** 90° right of given dir. */
     public static int rightFrom(int direction) {
         Assert.pre(0 <= direction && direction < 4, "Bad direction");
         return (direction + 1) % 4;

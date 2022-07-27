@@ -2,9 +2,7 @@
 import structure5.*;
 import java.util.Random;
 import java.io.*;
-/**
- * This class controls the simulation. 
- */
+/** Runs the whole simulation. */
 class Darwin {
     private static Random chaos = new Random();
     private static Vector<Species>  kinds;
@@ -14,12 +12,7 @@ class Darwin {
     private static int              critterCount = 0;
     private final static int  WIDTH = 15;
     private final static int  HEIGHT = WIDTH;
-    /**
-     * The array passed into main will include the arguments that
-     * appeared on the command line.  For example, running "java
-     * Darwin Hop.txt Rover.txt" will call the main method with s
-     * being an array of two strings: "Hop.txt" and "Rover.txt".
-     */
+    /** Entry point. Pass creature files as args. */
     public static void main(String s[]) {
         theWorld = new World<Creature>(WIDTH,HEIGHT);
         WorldMap.createWorldMap(theWorld.width(),theWorld.height());
