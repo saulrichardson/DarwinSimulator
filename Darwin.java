@@ -3,22 +3,7 @@ import structure5.*;
 import java.util.Random;
 import java.io.*;
 /**
- * This class controls the simulation.  The design is entirely up to
- * you.  You should include a main method that takes the array of
- * species file names passed in and populates a world with species of
- * each type.  
- * <p>
- * Be sure to call the WorldMap.pause() method every time
- * through the main simulation loop or else the simulation will be too fast. 
- * For example:
- * <pre>
- *   public void simulate() {
- *       for (int rounds = 0; rounds < numRounds; rounds++) {
- *         giveEachCreatureOneTurn();
- *         pause(100);
- *       }
- *   }
- * </pre>
+ * This class controls the simulation. 
  */
 class Darwin {
     private static Random chaos = new Random();
